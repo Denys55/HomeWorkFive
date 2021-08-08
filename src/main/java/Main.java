@@ -3,6 +3,7 @@ import model.Category;
 import model.Pet;
 import model.User;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.converter.gson.GsonConverterFactory;
 import service.ClientForPet;
 import service.ClientForUser;
@@ -20,6 +21,9 @@ public class Main {
         ClientForUser clientUser = Config.createClient(ClientForUser.class);
         User result = Config.execute(clientUser.addUser(user));
         System.out.println(result);
+
+        User user1 = Config.execute(clientUser.getUser("55Denis"));
+        System.out.println(user.getFirstName());
 
     }
 

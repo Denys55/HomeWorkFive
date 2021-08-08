@@ -1,5 +1,7 @@
 package service;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.SneakyThrows;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -11,6 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 
 public class Config {
+
+
 
     public static <T>T createClient(Class<T> clientClass){
         return new Retrofit.Builder()
