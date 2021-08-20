@@ -1,9 +1,8 @@
 package model;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import java.util.List;
 
 @Data
 @Builder
@@ -20,7 +19,7 @@ public class Pet {
     private String name;
 
     @SerializedName("photoUrls")
-    private String photoUrls;
+    private List<String> photoUrls;
 
     @SerializedName("tags")
     private Tag tag;

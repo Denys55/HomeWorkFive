@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.SneakyThrows;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Converter.Factory;
 import retrofit2.Response;
@@ -27,6 +29,11 @@ public class Config {
 
     @SneakyThrows
     public static <T> T execute(Call<T> call) {
+        Request request = call.request();
+        RequestBody body = request.body();
+        Gson gson = new Gson();
+        String s = gson.toJson(request);
+        System.out.println(s);
         Response<T> response = call.execute();
         if(response.isSuccessful()) return response.body();
         else{
